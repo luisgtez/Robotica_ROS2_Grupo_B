@@ -1,0 +1,2 @@
+bool person_exists
+geometry_msgs/Point coordinates
