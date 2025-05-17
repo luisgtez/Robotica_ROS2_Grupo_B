@@ -53,7 +53,7 @@ class person_recon(Node):
                 self.logger.info(f"Log level changed to: {param.value}")
 
     def add_bounding_box(self, frame, results):
-        coordinates = None
+        coordinates = (0.0, 0.0, 0.0)
         for result in results:
             boxes = result.boxes
             for box in boxes:
@@ -99,10 +99,9 @@ class person_recon(Node):
     def publish_flag(self, state: bool, coordinates: tuple):
         msg = PersonInfo()
         msg.person_exists = state
-        if coordinates is None:
-            coordinates = (0.0, 0.0, 0.0)
+        x, y, z = coordinates
         msg.coordinates = Point(
-            x=float(coordinates[0]), y=float(coordinates[1]), z=float(coordinates[2])
+            x=float(x), y=float(y), z=float(z)
         )
         self.logger.debug(
             f"Publishing person detection status: {state} at coordinates: {coordinates}"
