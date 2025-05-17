@@ -15,7 +15,9 @@ setup(
         (os.path.join("share", package_name, "launch"), glob("launch/*"))
     ],
     install_requires=['setuptools',
-                      'opencv-python'],
+                      'opencv-python',
+                      'matplotlib',
+                      'numpy'],
     zip_safe=True,
     maintainer='alumno',
     maintainer_email='alumno@todo.todo',
@@ -25,7 +27,8 @@ setup(
     entry_points={
         'console_scripts': [
             "person_recon = practica_B.person_recon:main",
-            'camera_node = practica_B.camera_node:main'
+            'camera_node = practica_B.camera_node:main',
+            'speed_monitor = practica_B.speed_monitor:main'
         ],
     },
 )
